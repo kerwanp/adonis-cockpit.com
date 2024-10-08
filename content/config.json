@@ -1,0 +1,15 @@
+{
+  "links": {
+    "home": {
+      "title": "Friends of Adonis",
+      "href": "/"
+    },
+    "github": {
+      "title": "Friends of Adonis on Github",
+      "href": "https://github.com/FriendsOfAdonis"
+    }
+  },
+  "sponsors_sources": [],
+  "fileEditBaseUrl": "https://github.com/FriendsOfAdonis/docs/blob/main",
+  "copyright": "FriendsOfAdonis"
+}
