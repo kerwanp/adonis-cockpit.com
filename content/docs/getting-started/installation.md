@@ -59,6 +59,8 @@ node ace add adonis-cockpit
 
 7. Installs and configure the required peer dependencies.
 
+8. Installs and configure TailwindCSS
+
 :::
 
 ## Configure Inertia Root layout
