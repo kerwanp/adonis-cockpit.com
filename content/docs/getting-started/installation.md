@@ -61,6 +61,47 @@ node ace add adonis-cockpit
 
 :::
 
+## Configure Inertia Root layout
+
+Adonis Cockpit bring its own root layout, to avoid breaking your existing Inertia configuration you have to manually update it to use the Cockpit layout when the path starts with `/admin`.
+
+```ts
+// title: config/inertia.ts
+const inertiaConfig = defineConfig({
+  rootView: ({ request }: HttpContext) => {
+    if (request.url().startsWith('/admin')) {
+      return 'cockpit::layouts/app'
+    }
+
+    return 'inertia_layout'
+  },
+})
+
+export default inertiaConfig
+```
+
+## Configure TailwindCSS
+
+Adonis Cockpit uses [TailwindCSS](https://tailwindcss.com/) for styling. To give you the ability to customize the styles the CSS is not pre-generated.
+
+```ts
+// title: tailwind.config.ts
+import { Config } from 'tailwindcss'
+import cockpit from 'adonis-cockpit/tailwind'
+
+export default {
+  darkMode: 'class',
+  content: ['./resources/views/**/*.edge', cockpit.contentPath],
+  plugins: [cockpit],
+} as Config
+```
+
+:::tip
+
+TailwindCSS does not allow plugins to extend the `content` configuration, this is why you have to manually set it.
+
+:::
+
 ## Start your Adonis App
 
 Start your Adonis application using `node ace serve` command and navigate to the `/admin` route.
