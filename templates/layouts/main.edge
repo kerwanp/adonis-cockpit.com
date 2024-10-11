@@ -6,31 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>
-      {{ file.frontmatter.title }}
+      {{ file.frontmatter.title }} - Cockpit
     </title>
     @if(file.frontmatter.summary)
       <meta name="description" content="{{ file.frontmatter.summary }}" />
+    @else
+      <meta name="description" content="Adonis Cockpit is the ultimate Admin Panel Builder for AdonisJS." />
     @end
-
+    <meta property="og:image" content="https://adonis-cockpit/logo-horizontal.png" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://friendsofadonis.github.io" />
-    <meta property="og:title" content="{{ file.frontmatter.title }}" />
+    <meta property="og:url" content="https://adonis-cockpit.com" />
+    <meta property="og:title" content="{{ file.frontmatter.title }} - Cockpit" />
     @if(file.frontmatter.summary)
       <meta name="og:description" content="{{ file.frontmatter.summary }}" />
     @end
 
-    <meta
-      property="twitter:url"
-      content="https://friendsofadonis.github.io{{ file.frontmatter.permalink }}"
-    />
-    <meta property="twitter:title" content="{{ file.frontmatter.title }}" />
+    <meta property="twitter:url" content="https://adonis-cockpti.com{{ file.frontmatter.permalink }}" />
+    <meta property="twitter:title" content="{{ file.frontmatter.title }} - Cockpit" />
     @if(file.frontmatter.summary)
       <meta name="twitter:description" content="{{ file.frontmatter.summary }}" />
     @end
 
     <link
       rel="canonical"
-      href="https://friendsofadonis.github.io{{ file.frontmatter.permalink }}"
+      href="https://adonis-cockpit.com{{ file.frontmatter.permalink }}"
       link
       rel="preconnect"
       href="https://fonts.googleapis.com"
