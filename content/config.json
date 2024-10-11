@@ -1,15 +1,15 @@
 {
   "links": {
     "home": {
-      "title": "Friends of Adonis",
+      "title": "Adonis Cockpit",
       "href": "/"
     },
     "github": {
-      "title": "Friends of Adonis on Github",
-      "href": "https://github.com/FriendsOfAdonis"
+      "title": "Adonis Cockpit on Github",
+      "href": "https://github.com/kerwanp/adonis-cockpit"
     }
   },
   "sponsors_sources": [],
-  "fileEditBaseUrl": "https://github.com/FriendsOfAdonis/docs/blob/main",
+  "fileEditBaseUrl": "https://github.com/kerwanp/adonis-cockpit.com/blob/main",
   "copyright": "FriendsOfAdonis"
 }

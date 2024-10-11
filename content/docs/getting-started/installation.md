@@ -83,7 +83,7 @@ Adonis Cockpit bring its own root layout, to avoid breaking your existing Inerti
 ```ts
 // title: config/inertia.ts
 const inertiaConfig = defineConfig({
-  rootView: ({ request }: HttpContext) => {
+  rootView: ({ request }) => {
     if (request.url().startsWith('/admin')) {
       return 'cockpit::layouts/app'
     }
@@ -93,8 +93,6 @@ const inertiaConfig = defineConfig({
 })
 
 export default inertiaConfig
-
-## Configure Vite
 ```
 
 ## Configure TailwindCSS
