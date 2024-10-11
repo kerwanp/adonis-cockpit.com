@@ -80,6 +80,8 @@ const inertiaConfig = defineConfig({
 })
 
 export default inertiaConfig
+
+## Configure Vite
 ```
 
 ## Configure TailwindCSS
@@ -92,17 +94,24 @@ import { Config } from 'tailwindcss'
 import cockpit from 'adonis-cockpit/tailwind'
 
 export default {
-  darkMode: 'class',
-  content: ['./resources/views/**/*.edge', cockpit.contentPath],
-  plugins: [cockpit],
+  presets: [cockpit],
 } as Config
 ```
 
-:::tip
+TailwindCSS does not allow plugins to extends `content` and `plugins` options, if you have a custom TailwindCSS configuration you must manually extend them using the preset:
 
-TailwindCSS does not allow plugins to extend the `content` configuration, this is why you have to manually set it.
+```ts
+// title: tailwind.config.ts
+import { Config } from 'tailwindcss'
+import cockpit from 'adonis-cockpit/tailwind'
+import customPlugin from 'custom-plugin'
 
-:::
+export default {
+  content: ['../custom-content/**/*.vue', ...cockpit.content],
+  plugins: [customPlugin, ...cockpit.plugins],
+  // Rest of your config...
+} as Config
+```
 
 ## Start your Adonis App
 
