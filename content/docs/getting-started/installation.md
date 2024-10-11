@@ -1,5 +1,18 @@
 # Installation
 
+## Important notices
+
+### ⚠ Pre-release
+
+Adonis Cockpit is in pre-release stage. It might not work as expected and is subject to change.
+You can track current progress on [the dedicated issue](https://github.com/kerwanp/adonis-cockpit/issues/4).
+
+Feedback is greatly appreciated, feel free to [create an issue](https://github.com/kerwanp/adonis-cockpit/issues).
+
+### ⚠ Inertia SSR
+
+Adonis Cockpit does not support Server Side Rendering and currently [@adonisjs/inertia](https://docs.adonisjs.com/guides/views-and-templates/inertia) does not allow disabling SSR per route. **If you have a frontend that uses SSR, you will not be able to use Cockpit yet.**.
+
 ## Install `adonis-cockpit`
 
 Adonis Cockpit tries to be an Out of the box Administration panel. It relies on different dependencies that will be installed and configured if they are not already present in your project:

@@ -25,7 +25,9 @@
         copyright: siteConfig.copyright
       })
         @component('elements/alert')
-          Adonis Cockpit is currently in prerelease version. Documentation, references and examples might not be correct and are subject to change.
+          <p style="margin-bottom: 0;">
+            Adonis Cockpit is currently in prerelease version. Documentation, references and examples might not be correct and are subject to change. <a href="https://github.com/kerwanp/adonis-cockpit/issues" target="_blank">Give your feedback</a>.
+          </p>
         @end
         @!component('docs::doc_errors', { messages: file.messages })
         @!component('dimer_contents', { nodes: file.ast.children, pipeline })
