@@ -9,10 +9,6 @@ You can track current progress on [the dedicated issue](https://github.com/kerwa
 
 Feedback is greatly appreciated, feel free to [create an issue](https://github.com/kerwanp/adonis-cockpit/issues).
 
-### ⚠ Inertia SSR
-
-Adonis Cockpit does not support Server Side Rendering and currently [@adonisjs/inertia](https://docs.adonisjs.com/guides/views-and-templates/inertia) does not allow disabling SSR per route. **If you have a frontend that uses SSR, you will not be able to use Cockpit yet.**.
-
 ## Install `adonis-cockpit`
 
 Adonis Cockpit tries to be an Out of the box Administration panel. It relies on different dependencies that will be installed and configured if they are not already present in your project:
@@ -89,6 +85,29 @@ const inertiaConfig = defineConfig({
     }
 
     return 'inertia_layout'
+  },
+})
+
+export default inertiaConfig
+```
+
+### Disable SSR for Cockpit pages
+
+Cockpit does not support Server Side Rendering. If you are using SSR for a different Inertia app, you will encounter an error.
+Hopefully, it is possible to disable SSR for all the Cockpit pages:
+
+```ts
+// title: config/inertia.ts
+const inertiaConfig = defineConfig({
+  ssr: {
+    enabled: true,
+    entrypoint: 'inertia/app/ssr.ts',
+    pages(ctx, page) {
+      if (page.startsWith('cockpit::')) {
+        return false
+      }
+      return true
+    },
   },
 })
 
