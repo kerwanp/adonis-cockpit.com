@@ -30,6 +30,12 @@
     "category": "Basics"
   },
   {
+    "permalink": "basics/menu",
+    "title": "Menu",
+    "contentPath": "./basics/menu.md",
+    "category": "Basics"
+  },
+  {
     "permalink": "basics/actions",
     "title": "Actions",
     "contentPath": "./basics/actions.md",
