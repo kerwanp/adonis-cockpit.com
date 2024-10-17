@@ -8,7 +8,47 @@ Adonis Cockpit does not bring any authentication system (yet), you can follow th
 
 :::
 
-## Global authorization
+## Configuring Auth
+
+### URLs
+
+Cockpit is able to display a Logout button when the user is authenticated, you can configure the URL in the Cockpit configuration file.
+
+```ts
+// title: config/cockpit.ts
+import { defineConfig } from 'adonis-cockpit'
+
+export default defineConfig({
+  auth: {
+    logoutUrl: '/logout',
+  },
+})
+```
+
+### User
+
+Cockpit will display the current authenticated user information in the navigation bar. By default it will retrieve the `email`, `userName` and `avatar` from your model. You might want to change this behavior, you can do it so using the `auth.user` configuration option.
+
+```ts
+// title: config/cockpit.ts
+import { defineConfig } from 'adonis-cockpit'
+
+export default defineConfig({
+  auth: {
+    user({ auth }) {
+      const user = auth.getUserOrFail()
+      return {
+        userName: `${user.firstName} ${user.lastName}`,
+        email: user.email
+      }
+    }
+  },
+})
+```
+
+## Policies
+
+### Global Policy
 
 The global policy is applied everywhere on the admin.
 
@@ -29,7 +69,7 @@ import cockpit from 'adonis-cockpit/services/main'
 cockpit.policy(adminPolicy)
 ```
 
-## Per Operation
+### Per Operation Policies
 
 You can define different policies for each different kind of operations.
 
@@ -51,7 +91,7 @@ The per operation policies are overwritten by the [Per Resource](#per-resource) 
 
 :::
 
-## Per Resource
+### Per Resource Policies
 
 You can apply custom policies at the resource level. They will override the [Per Operation](#per-operation) policies.
 
@@ -66,7 +106,7 @@ class Resource extends ModelResurce {
 }
 ```
 
-## Per Action
+### Per Action Policies
 
 You can apply custom policies to your [Actions](./actions.md). They will override the [Per Operation](#per-operation) policies.
 
